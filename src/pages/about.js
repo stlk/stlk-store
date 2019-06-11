@@ -2,7 +2,6 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import dogIllustration from "../images/dog-illustration.svg";
 
 function AboutPage() {
   return (
@@ -28,7 +27,6 @@ function AboutPage() {
         </div>
 
         <div className="w-2/3 md:w-1/3">
-          <img src={dogIllustration} alt="A dog relaxing" />
         </div>
       </div>
     </Layout>

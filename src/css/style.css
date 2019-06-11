@@ -60,3 +60,15 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500|Old+Standard+TT&display=swap');
+
+ body {
+   -webkit-font-smoothing: antialiased;
+   -webkit-text-size-adjust: 100%;
+   text-rendering: optimizeLegibility;
+ }
+
+ .overlay {
+   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) calc(100% - 150px), rgba(0, 0, 0, 0.38) calc(100% - 60px), rgba(0, 0, 0, 0.5));
+ }

@@ -1,10 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`
+    title: `The Urban Wilderness`,
+    description: `Your gear for the city`,
+    author: `Josef Rousek`
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    { resolve: `gatsby-source-filesystem`, options: { path: `${__dirname}/src/images/`, }, },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -15,7 +18,6 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#4dc0b5`,
         display: `minimal-ui`,
-        icon: `src/images/tailwind-icon.png`
       }
     },
     `gatsby-plugin-postcss`,

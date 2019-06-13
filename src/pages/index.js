@@ -80,7 +80,7 @@ function IndexPage({ data }) {
                 <span className="text-sm font-display uppercase tracking-widest">
                   &nbsp;—{" "}
                   <span className="font-semibold">
-                    {new Intl.NumberFormat(window.navigator.language, {
+                    {new Intl.NumberFormat(typeof window !== `undefined` ? window.navigator.language : 'en-US', {
                       style: "currency",
                       currency: node.priceRange.minVariantPrice.currencyCode
                     }).format(node.priceRange.minVariantPrice.amount)}

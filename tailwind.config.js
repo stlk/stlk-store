@@ -3,10 +3,12 @@
 module.exports = {
   theme: {
     fontFamily: {
-      display: ['Montserrat', 'sans-serif'],
-      body: ['Old Standard TT', 'sans-serif'],
-    },
+      display: ["Montserrat", "sans-serif"],
+      body: ["Old Standard TT", "sans-serif"]
+    }
   },
-  variants: {},
+  variants: {
+    opacity: ['hover']
+  },
   plugins: []
 };

@@ -32,13 +32,14 @@ function Layout({ children }) {
                 >
                   Josef Rousek
                 </a>
-                . Sold by {" "}
+                . Sold by{" "}
                 <a
                   href="https://proudlycrazy.com/"
                   className="font-bold no-underline text-white"
                 >
                   Proudly Crazy
-                </a>.
+                </a>
+                .
               </p>
             </div>
           </footer>

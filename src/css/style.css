@@ -83,3 +83,50 @@ body {
   background: #f7f7f7;
   transition: opacity 0.4s ease-out;
 }
+
+.single-option-radio input {
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+}
+
+.single-option-radio input[type="radio"]:checked + label {
+  border-color: #222323;
+}
+
+.single-option-radio label {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  padding: 9px 11px;
+  margin: 3px 4px 7px 3px;
+  font-size: 0.8125em;
+  font-style: normal;
+  background-color: #fff;
+  border: 1px solid #fff;
+  color: #222323;
+}
+
+.single-option-radio label[for] {
+  cursor: pointer;
+}
+
+table {
+  @apply .mb-8;
+}
+
+.description strong {
+  @apply .mt-1 .mb-4 .block;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 15px;
+  border: 1px solid #e5e5e5;
+}

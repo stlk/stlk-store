@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Header from "../components/header";
-import Price from "../components/Price"
+import Price from "../components/Price";
 
 function IndexPage({ data }) {
   return (
@@ -35,32 +35,36 @@ function IndexPage({ data }) {
       </div>
 
       <div className="flex items-center justify-between flex-wrap mx-auto w-full max-w-5xl my-8">
-        {data.allShopifyProduct.edges.map(
-          ({ node }) => (
-            <div key={node.id} className="w-full sm:w-1/2 px-4">
-              <Link to={`/product/${node.handle}`} className="block px-8 py-4 product-link hover:opacity-75">
-                <Img
-                  fluid={node.images[0].localFile.childImageSharp.fluid}
-                  className="h-64"
-                  imgStyle={{ objectFit: "contain" }}
-                  alt=""
-                />
-              </Link>
-              <Link
-                to={`/product/${node.handle}`}
-                className="m-4 mx-auto flex justify-center items-center"
-              >
-                <span className="text-xl italic">{node.title}</span>
-                <span className="text-sm font-display uppercase tracking-widest">
-                  &nbsp;—{" "}
-                  <span className="font-semibold">
-                    <Price amount={node.priceRange.minVariantPrice.amount} currency={node.priceRange.minVariantPrice.currencyCode} />
-                  </span>
+        {data.allShopifyProduct.edges.map(({ node }) => (
+          <div key={node.id} className="w-full sm:w-1/2 px-4">
+            <Link
+              to={`/product/${node.handle}`}
+              className="block px-8 py-4 product-link hover:opacity-75"
+            >
+              <Img
+                fluid={node.images[0].localFile.childImageSharp.fluid}
+                className="h-64"
+                imgStyle={{ objectFit: "contain" }}
+                alt=""
+              />
+            </Link>
+            <Link
+              to={`/product/${node.handle}`}
+              className="m-4 mx-auto flex justify-center items-center"
+            >
+              <span className="text-xl italic">{node.title}</span>
+              <span className="text-sm font-display uppercase tracking-widest">
+                &nbsp;—{" "}
+                <span className="font-semibold">
+                  <Price
+                    amount={node.priceRange.minVariantPrice.amount}
+                    currency={node.priceRange.minVariantPrice.currencyCode}
+                  />
                 </span>
-              </Link>
-            </div>
-          )
-        )}
+              </span>
+            </Link>
+          </div>
+        ))}
       </div>
 
       <div id="about" className="max-w-2xl mx-auto my-12 text-center">
@@ -72,14 +76,17 @@ function IndexPage({ data }) {
         <Img
           fluid={data.about.childImageSharp.fluid}
           className="w-full"
-          style={{ flex: '0 1 50%'}}
+          style={{ flex: "0 1 50%" }}
           alt=""
         />
         <div className="pl-8">
-        <h2 className="font-display uppercase tracking-widest font-semibold text-2xl my-2">We are couple</h2>
-      <p className="text-md">
-        who share their passion for good coffee, bikes and exploring new cities.
-      </p>
+          <h2 className="font-display uppercase tracking-widest font-semibold text-2xl my-2">
+            We are couple
+          </h2>
+          <div className="text-md">
+            who share their passion for good coffee, bikes and exploring new
+            cities.
+          </div>
         </div>
       </div>
     </Layout>

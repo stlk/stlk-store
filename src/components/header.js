@@ -2,60 +2,42 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 
-function Header({ siteTitle }) {
+function Header({stickToTop}) {
   const [isExpanded, toggleExpansion] = useState(false);
 
   return (
-    <nav className="absolute">
-      <div className="flex flex-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
-        <Link to="/" className="flex items-center no-underline text-white">
-          <span className="font-bold text-xl tracking-tight">{siteTitle}</span>
+    <nav className={`${stickToTop ? 'absolute top-0 right-0 left-0 text-white' : 'text-gray-900'} p-6 font-display uppercase tracking-widest`}>
+      <div className="flex items-center justify-between flex-wrap max-w-4xl mx-auto w-full">
+        <Link to="/" className="flex items-center flex-shrink-0 mr-6">
+          <span className="text-2xl font-bold">The Urban Wilderness</span>
         </Link>
-
-        <button
-          className="block md:hidden border border-white flex items-center px-3 py-2 rounded text-white"
-          onClick={() => toggleExpansion(!isExpanded)}
-        >
-          <svg
-            className="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
-
-        <div
-          className={`${
-            isExpanded ? `block` : `hidden`
-          } md:block md:flex md:items-center w-full md:w-auto`}
-        >
-          <div className="text-sm">
-            <Link
-              to="/"
-              className="block mt-4 md:inline-block md:mt-0 mr-6 no-underline text-white"
+        <div className="block lg:hidden">
+          <button className="flex items-center px-3 py-2 border rounded border-white-400 hover:border-white" onClick={() => toggleExpansion(!isExpanded)}>
+            <svg
+              className="fill-current h-3 w-3"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Home
-            </Link>
-
-            <Link
-              to="/about"
-              className="block md:inline-block mt-4 md:mt-0 mr-6 no-underline text-white"
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+        <div className={`${
+           isExpanded ? `block` : `hidden`
+           } w-full lg:flex lg:items-center lg:w-auto`}>
+          <div className="text-sm font-semibold">
+            <a
+              href="#about"
+              className="block mt-4 lg:inline-block lg:mt-0 mr-8"
             >
               About
-            </Link>
-
-            <Link
-              to="/contact"
-              className="block md:inline-block mt-4 md:mt-0 no-underline text-white"
-            >
-              Contact
-            </Link>
+              </a>
           </div>
         </div>
       </div>
     </nav>
+
   );
 }
 
@@ -64,7 +46,8 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  siteTitle: ``
+  siteTitle: ``,
+  stickToTop: false
 };
 
 export default Header;

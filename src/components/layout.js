@@ -18,10 +18,7 @@ function Layout({ children }) {
       `}
       render={data => (
         <div className="flex flex-col font-body leading-normal min-h-screen text-gray-900">
-          <Header siteTitle={data.site.siteMetadata.title} />
-
           {children}
-
           <footer className="bg-gray-800">
             <div className="flex justify-between flex-row-reverse max-w-4xl mx-auto p-4 md:p-8 text-sm">
               <p className="text-white">

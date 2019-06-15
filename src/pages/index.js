@@ -4,6 +4,8 @@ import Img from "gatsby-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Header from "../components/header";
+import Price from "../components/Price"
 
 function IndexPage({ data }) {
   return (
@@ -25,35 +27,7 @@ function IndexPage({ data }) {
         </div>
       </div>
 
-      <nav className="absolute top-0 right-0 left-0 p-6 font-display uppercase tracking-widest">
-        <div className="flex items-center justify-between flex-wrap max-w-4xl mx-auto w-full">
-          <div className="flex items-center flex-shrink-0 text-white mr-6">
-            <span className="text-2xl font-bold">The Urban Wilderness</span>
-          </div>
-          <div className="block lg:hidden">
-            <button className="flex items-center px-3 py-2 border rounded text-white border-white-400 hover:text-white hover:border-white">
-              <svg
-                className="fill-current h-3 w-3"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-              </svg>
-            </button>
-          </div>
-          <div className="w-full block lg:flex lg:items-center lg:w-auto">
-            <div className="text-sm font-semibold">
-              <a
-                href="#about"
-                className="block mt-4 lg:inline-block lg:mt-0 text-white mr-8"
-              >
-                About
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header stickToTop />
 
       <div className="max-w-2xl mx-auto my-20 text-center">
         <h2 className="text-3xl my-6">travelling, coffee and bikes</h2>
@@ -64,7 +38,7 @@ function IndexPage({ data }) {
         {data.allShopifyProduct.edges.map(
           ({ node }) => (
             <div key={node.id} className="w-full sm:w-1/2 px-4">
-              <Link className="block px-8 py-4 product-link hover:opacity-75">
+              <Link to={`/product/${node.handle}`} className="block px-8 py-4 product-link hover:opacity-75">
                 <Img
                   fluid={node.images[0].localFile.childImageSharp.fluid}
                   className="h-64"
@@ -73,17 +47,14 @@ function IndexPage({ data }) {
                 />
               </Link>
               <Link
-                href="#"
+                to={`/product/${node.handle}`}
                 className="m-4 mx-auto flex justify-center items-center"
               >
                 <span className="text-xl italic">{node.title}</span>
                 <span className="text-sm font-display uppercase tracking-widest">
                   &nbsp;—{" "}
                   <span className="font-semibold">
-                    {new Intl.NumberFormat(typeof window !== `undefined` ? window.navigator.language : 'en-US', {
-                      style: "currency",
-                      currency: node.priceRange.minVariantPrice.currencyCode
-                    }).format(node.priceRange.minVariantPrice.amount)}
+                    <Price amount={node.priceRange.minVariantPrice.amount} currency={node.priceRange.minVariantPrice.currencyCode} />
                   </span>
                 </span>
               </Link>
@@ -137,8 +108,8 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          handle
           title
-          descriptionHtml
           priceRange {
             minVariantPrice {
               amount

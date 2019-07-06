@@ -116,17 +116,17 @@ body {
   cursor: pointer;
 }
 
-table {
+.description table {
   @apply .mb-8;
 }
 
-.description strong {
-  @apply .mt-1 .mb-4 .block;
+.description th,
+.description td {
+  text-align: left;
+  padding: .3rem 1rem;
+  border: 1px solid #e5e5e5;
 }
 
-th,
-td {
-  text-align: left;
-  padding: 15px;
-  border: 1px solid #e5e5e5;
+.description p > strong {
+  @apply .mt-1 .mb-4 .block;
 }

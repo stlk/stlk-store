@@ -10,7 +10,7 @@ import Price from "../components/Price";
 function IndexPage({ data }) {
   return (
     <Layout>
-      <SEO title="" keywords={[]} />
+      <SEO title="Your gear" />
       <Img
         fluid={data.hero.childImageSharp.fluid}
         className="object-cover object-center h-screen w-full overlay"

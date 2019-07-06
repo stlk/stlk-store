@@ -38,12 +38,12 @@ function Header({ stickToTop }) {
           } w-full lg:flex lg:items-center lg:w-auto`}
         >
           <div className="text-sm font-semibold">
-            <a
-              href="#about"
+            <Link
+              to="/#about"
               className="block mt-4 lg:inline-block lg:mt-0 mr-8"
             >
               About
-            </a>
+            </Link>
           </div>
         </div>
       </div>

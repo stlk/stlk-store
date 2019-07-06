@@ -34,7 +34,7 @@ export default ({ data: { shopifyProduct } }) => {
 
   return (
     <Layout>
-      <SEO title={shopifyProduct.title} keywords={[]} />
+      <SEO title={shopifyProduct.title} description={shopifyProduct.description} />
       <Header />
 
       <div className="md:flex justify-between mx-auto mt-10 mb-24 w-full max-w-5xl mt-20">
@@ -123,6 +123,7 @@ export const pageQuery = graphql`
       id
       handle
       title
+      description
       descriptionHtml
       variants {
         shopifyId

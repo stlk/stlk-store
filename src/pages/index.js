@@ -72,14 +72,14 @@ function IndexPage({ data }) {
         <hr className="w-10 border-b border-gray-900" />
       </div>
 
-      <div className="flex justify-between items-center max-w-2xl mx-auto mt-10 mb-24 w-full max-w-5xl">
+      <div className="sm:flex justify-between items-center max-w-2xl mx-auto mt-10 mb-24 w-full max-w-5xl">
         <Img
           fluid={data.about.childImageSharp.fluid}
-          className="w-full"
+          className="w-full mt-8"
           style={{ flex: "0 1 50%" }}
           alt=""
         />
-        <div className="pl-8">
+        <div className="pl-8 mt-8">
           <h2 className="font-display uppercase tracking-widest font-semibold text-2xl my-2">
             We are couple
           </h2>

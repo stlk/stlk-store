@@ -15,7 +15,7 @@ function Header({ stickToTop }) {
     >
       <div className="flex items-center justify-between flex-wrap max-w-4xl mx-auto w-full">
         <Link to="/" className="flex items-center flex-shrink-0 mr-6">
-          <span className="text-2xl font-bold">The Urban Wilderness</span>
+          <span className="text-2xl font-bold">The&nbsp;<br className="sm:hidden" />Urban Wilderness</span>
         </Link>
         <div className="block lg:hidden">
           <button

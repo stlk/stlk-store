@@ -44,6 +44,7 @@ export default ({ data: { shopifyProduct } }) => {
               key={localFile}
               fluid={localFile.childImageSharp.fluid}
               alt=""
+              className="my-8"
             />
           ))}
         </div>

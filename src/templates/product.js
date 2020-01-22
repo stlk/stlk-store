@@ -10,10 +10,13 @@ import Price from "../components/Price";
 export default ({ data: { shopifyProduct } }) => {
   const [variant, setVariant] = useState(shopifyProduct.variants[0]);
   function optionSelected(option, value) {
-    const newOptions = {
-      ...new Map(variant.selectedOptions.map(so => [so.name, so.value])),
-      [option]: value
-    };
+    const newOptions = {};
+    variant.selectedOptions.forEach(so => newOptions[so.name] = so.value)
+
+    newOptions[option] = value
+
+    console.log(newOptions, variant.selectedOptions);
+
 
     setVariant(
       shopifyProduct.variants.find(v =>
@@ -39,9 +42,9 @@ export default ({ data: { shopifyProduct } }) => {
 
       <div className="md:flex justify-between mx-auto mt-10 mb-24 w-full max-w-5xl mt-20">
         <div className="w-full">
-          {shopifyProduct.images.map(({ localFile }) => (
+          {shopifyProduct.images.map(({ localFile }, idx) => (
             <Img
-              key={localFile}
+              key={idx}
               fluid={localFile.childImageSharp.fluid}
               alt=""
               className="my-8"
@@ -55,7 +58,7 @@ export default ({ data: { shopifyProduct } }) => {
               <Price amount={variant.price} currency="USD" />
             </h2>
             <div className="mt-4 mb-6">Tax included.</div>
-            <hr className="w-10 border-b border-gray-900 mb-6" />
+            <hr className="w-10 border-b border-gray-900 mb-6 mx-auto" />
             {shopifyProduct.options.map(option => {
               const optionId = `product-select-option-${option.name}`;
               const selectedOption = variant.selectedOptions.find(
@@ -118,7 +121,7 @@ export default ({ data: { shopifyProduct } }) => {
   );
 };
 
-export const pageQuery = graphql`
+export const productQuery = graphql`
   query BlogPostBySlug($id: String!) {
     shopifyProduct(id: { eq: $id }) {
       id

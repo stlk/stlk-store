@@ -20,16 +20,13 @@ module.exports = {
         // See: https://help.shopify.com/api/custom-storefronts/storefront-api/getting-started#authentication
         accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
 
+        apiVersion: "2020-01",
+
         // Set verbose to true to display a verbose output on `npm run develop`
         // or `npm run build`. This prints which nodes are being fetched and how
         // much time was required to fetch and process the data.
         // Defaults to true.
         verbose: true,
-
-        // Number of records to fetch on each request when building the cache
-        // at startup. If your application encounters timeout errors during
-        // startup, try decreasing this number.
-        paginationSize: 100
       }
     },
     `gatsby-transformer-sharp`,

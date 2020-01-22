@@ -111,7 +111,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allShopifyProduct(filter: { tags: { eq: "josef" } }) {
+    allShopifyProduct(filter: { tags: { eq: "men" } }) {
       edges {
         node {
           id

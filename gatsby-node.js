@@ -5,7 +5,7 @@ exports.createPages = async function createPages({ actions, graphql }) {
 
   const result = await graphql(`
     {
-      allShopifyProduct(filter: { tags: { eq: "men" } }) {
+      allShopifyProduct {
         edges {
           node {
             id

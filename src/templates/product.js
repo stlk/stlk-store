@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import { Link, graphql } from "gatsby";
+import {  graphql } from "gatsby";
 import Img from "gatsby-image";
 
 import Layout from "../components/layout";
@@ -12,11 +12,7 @@ export default ({ data: { shopifyProduct } }) => {
   function optionSelected(option, value) {
     const newOptions = {};
     variant.selectedOptions.forEach(so => newOptions[so.name] = so.value)
-
     newOptions[option] = value
-
-    console.log(newOptions, variant.selectedOptions);
-
 
     setVariant(
       shopifyProduct.variants.find(v =>
@@ -32,7 +28,7 @@ export default ({ data: { shopifyProduct } }) => {
     const variantId = window
       .atob(variant.shopifyId)
       .replace("gid://shopify/ProductVariant/", "");
-    window.location.href = `https://liduska-test.myshopify.com/cart/${variantId}:1?channel=buy_button`;
+    window.location.href = `https://${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com/cart/${variantId}:1?channel=buy_button`;
   }
 
   return (
@@ -60,6 +56,9 @@ export default ({ data: { shopifyProduct } }) => {
             <div className="mt-4 mb-6">Tax included.</div>
             <hr className="w-10 border-b border-gray-900 mb-6 mx-auto" />
             {shopifyProduct.options.map(option => {
+              if (option.name === "Title") {
+                return null
+              }
               const optionId = `product-select-option-${option.name}`;
               const selectedOption = variant.selectedOptions.find(
                 so => so.name === option.name
@@ -104,7 +103,7 @@ export default ({ data: { shopifyProduct } }) => {
             <button
               onClick={checkout}
               disabled={!variant.availableForSale}
-              className="block w-full bg-gray-900 hover:bg-gray-800 text-white p-4 my-6 font-display font-semibold uppercase tracking-widest text-sm"
+              className="block w-full bg-gray-900 hover:bg-gray-800 text-white p-4 my-6 font-display font-semibold uppercase tracking-widest text-sm disabled:opacity-50"
             >
               Buy now
             </button>

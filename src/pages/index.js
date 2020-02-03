@@ -81,11 +81,10 @@ function IndexPage({ data }) {
         />
         <div className="pl-8 mt-8">
           <h2 className="font-display uppercase tracking-widest font-semibold text-2xl my-2">
-            We are couple
+            Something about us
           </h2>
           <div className="text-md">
-            who share their passion for good coffee, bikes and exploring new
-            cities.
+            We love good coffee, bikes and exploring new cities.
           </div>
         </div>
       </div>
@@ -94,7 +93,7 @@ function IndexPage({ data }) {
 }
 
 export default IndexPage;
-
+//, duotone: { highlight: "#0ec4f1", shadow: "#192550", opacity: 50 }, toFormat: JPG
 export const pageQuery = graphql`
   {
     hero: file(relativePath: { eq: "bike.jpg" }) {
@@ -111,7 +110,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allShopifyProduct(filter: { tags: { eq: "men" } }) {
+    allShopifyProduct {
       edges {
         node {
           id

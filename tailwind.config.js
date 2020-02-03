@@ -8,7 +8,7 @@ module.exports = {
     }
   },
   variants: {
-    opacity: ["hover"]
+    opacity: ["hover", "disabled"]
   },
   plugins: []
 };

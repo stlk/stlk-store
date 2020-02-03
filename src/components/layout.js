@@ -29,10 +29,10 @@ function Layout({ children }) {
                 </a>
                 . Sold by{" "}
                 <a
-                  href="https://proudlycrazy.com/"
+                  href="#"
                   className="font-bold no-underline text-white"
                 >
-                  Proudly Crazy
+                  *seller*
                 </a>
                 .
               </p>

@@ -10,7 +10,7 @@ module.exports = {
     {
       resolve: "gatsby-source-shopify",
       options: {
-        shopName: process.env.SHOPIFY_SHOP_NAME,
+        shopName: process.env.GATSBY_SHOPIFY_SHOP_NAME,
 
         // An API access token to your Shopify shop. This is required.
         // You can generate an access token in the "Manage private apps" section
@@ -36,17 +36,6 @@ module.exports = {
       options: { path: `${__dirname}/src/images/` }
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-tailwind`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#4dc0b5`,
-        display: `minimal-ui`
-      }
-    },
     `gatsby-plugin-postcss`,
     {
       resolve: "gatsby-plugin-purgecss",

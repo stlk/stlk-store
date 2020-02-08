@@ -28,7 +28,7 @@ export default ({ data: { shopifyProduct } }) => {
     const variantId = window
       .atob(variant.shopifyId)
       .replace("gid://shopify/ProductVariant/", "");
-    window.location.href = `https://${process.env.GATSBY_SHOPIFY_SHOP_NAME}.myshopify.com/cart/${variantId}:1?channel=buy_button`;
+    window.location.href = `https://${process.env.GATSBY_SHOPIFY_SHOP_NAME}/cart/${variantId}:1?channel=buy_button`;
   }
 
   return (
